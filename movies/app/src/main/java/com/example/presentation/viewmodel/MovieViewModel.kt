@@ -1,8 +1,8 @@
 package com.example.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.data.repository.TheMovieDbRepository
+import com.example.domain.usecases.MovieUseCase
 
-class MovieViewModel(private val repository: TheMovieDbRepository) : ViewModel() {
-    fun fetchData() = repository.getResult()
+class MovieViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
+    fun fetchData() = movieUseCase.getMovieList()
 }

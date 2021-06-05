@@ -1,4 +1,4 @@
-package com.example.data.repository
+package com.example.domain.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
