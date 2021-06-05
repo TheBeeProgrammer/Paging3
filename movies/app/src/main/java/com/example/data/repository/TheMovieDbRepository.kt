@@ -9,7 +9,7 @@ import com.example.data.network.paging.TheMovieDbPagingSource
 import kotlinx.coroutines.flow.Flow
 
 class TheMovieDbRepository(private val theMovieDb: TheMovieDbService) {
-    fun getSearchResultStream(): Flow<PagingData<MovieEntity>> {
+    fun getResult(): Flow<PagingData<MovieEntity>> {
         return Pager(
             config = PagingConfig(pageSize = 20, enablePlaceholders = false),
             pagingSourceFactory = { TheMovieDbPagingSource(theMovieDb) }
