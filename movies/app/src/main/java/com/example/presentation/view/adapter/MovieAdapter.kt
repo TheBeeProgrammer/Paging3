@@ -3,7 +3,7 @@ package com.example.presentation.view.adapter
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.example.data.network.entities.MovieEntity
+import com.example.data.network.entities.movie.MovieEntity
 
 class MovieAdapter : PagingDataAdapter<MovieEntity, MovieViewHolder>(Movie_COMPARATOR) {
 

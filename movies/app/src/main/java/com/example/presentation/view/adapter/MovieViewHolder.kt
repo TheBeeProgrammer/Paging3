@@ -1,13 +1,12 @@
 package com.example.presentation.view.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.data.network.entities.MovieEntity
+import com.example.data.network.entities.movie.MovieEntity
 import com.example.movies.R
 
 private const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"

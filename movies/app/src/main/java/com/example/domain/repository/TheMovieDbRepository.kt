@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.data.network.api.TheMovieDbService
-import com.example.data.network.entities.MovieEntity
+import com.example.data.network.entities.movie.MovieEntity
 import com.example.data.network.paging.TheMovieDbPagingSource
 import kotlinx.coroutines.flow.Flow
 

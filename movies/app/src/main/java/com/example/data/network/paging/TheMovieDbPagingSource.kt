@@ -3,8 +3,7 @@ package com.example.data.network.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.data.network.api.TheMovieDbService
-import com.example.data.network.entities.MovieEntity
-import com.example.data.network.entities.MovieResponseEntity
+import com.example.data.network.entities.movie.MovieEntity
 import retrofit2.HttpException
 import java.io.IOException
 
