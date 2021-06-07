@@ -3,9 +3,9 @@
 # Architecture :onion:
 >
 # ScreenShots :camera:
-> ![login](https://github.com/thebeeprogrammer/RetoTecnicoAndroid/blob/develop/login.png?raw=true)
-> ![movies](screenshots/movies.png)
-> ![movieDeatil](screenshots/movieDetail.png)
+> ![login](https://ibb.co/QrXbxPs)
+> ![movies](https://ibb.co/mN4QCGR)
+> ![movieDeatil](https://ibb.co/XjsqxK0)
 # Dependencies :elephant:
 >- Retrofit 2
 >- Glide
