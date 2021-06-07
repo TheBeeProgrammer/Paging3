@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Movies</string>
-    <string name="username">.</string>
-    <string name="password">.</string>
+    <string name="username">Admin</string>
+    <string name="password">Password*123.</string>
 </resources>
