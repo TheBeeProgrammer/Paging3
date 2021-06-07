@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.flowOn
 
 class MovieDetailApi(private var theMovieDbService: TheMovieDbService) {
 
-    suspend fun fetchMovies(movieId: Int) : Flow<MovieDetailResponse> {
+    suspend fun fetchMovies(movieId: Int): Flow<MovieDetailResponse> {
         return flow {
-            emit(theMovieDbService.fetchMovieDetail(837007))
-        }.flowOn(Dispatchers.IO)
+            emit(theMovieDbService.fetchMovieDetail(337404))
+        }.flowOn(Dispatchers.IO) as Flow<MovieDetailResponse>
     }
 }
