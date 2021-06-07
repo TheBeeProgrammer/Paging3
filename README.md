@@ -3,9 +3,9 @@
 # Architecture :onion:
 >
 # ScreenShots :camera:
-> ![login](https://ibb.co/QrXbxPs)
-> ![movies](https://ibb.co/mN4QCGR)
-> ![movieDeatil](https://ibb.co/XjsqxK0)
+> ![login](https://postimg.cc/62TsSDWV)
+> ![movies](https://postimg.cc/9RS3jJ06)
+> ![movieDeatil](https://postimg.cc/ct8p1w8r)
 # Dependencies :elephant:
 >- Retrofit 2
 >- Glide
