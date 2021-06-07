@@ -1,5 +1,5 @@
 # Reto Tecnico Android :fire:
-> MVVM example, using Flow, LiveData, paging 3 for pagination and retrofit for consume Rest API.
+> MVVM example, using Flow, LiveData, paging 3 for pagination and retrofit for consume API Rest.
 # Architecture :onion:
 >[![Untitled-Diagram-2.png](https://i.postimg.cc/WbLG200z/Untitled-Diagram-2.png)](https://postimg.cc/dD6k6kHc)
 # ScreenShots :camera:
