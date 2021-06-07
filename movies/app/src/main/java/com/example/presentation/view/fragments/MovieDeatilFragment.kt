@@ -1,16 +1,16 @@
 package com.example.presentation.view.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.Injector
 import com.example.data.network.entities.moviedetail.MovieDetailResponse
-import com.example.movies.databinding.FagmentMovieDetailBinding
+import com.example.movies.databinding.FragmentMovieDeatilBinding
 import com.example.presentation.viewmodel.MovieViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -21,7 +21,7 @@ private const val ARG_MOVIE_ID = "note_id"
 
 class MovieDeatilFragment : Fragment() {
 
-    private var binding: FagmentMovieDetailBinding? = null
+    private var binding: FragmentMovieDeatilBinding? = null
     private lateinit var viewModel: MovieViewModel
     private var movieId = 0
 
@@ -32,7 +32,7 @@ class MovieDeatilFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FagmentMovieDetailBinding.inflate(inflater, container, false)
+        binding = FragmentMovieDeatilBinding.inflate(inflater, container, false)
         movieId = arguments?.getSerializable(ARG_MOVIE_ID) as Int
 
         viewModel = ViewModelProvider(this, Injector.provideViewModelFactory())
