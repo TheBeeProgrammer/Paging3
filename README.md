@@ -1,9 +1,11 @@
 #Reto Tecnico Android :fire:
+>
 #Architecture :onion:
+>
 #ScreenShots :camera:
-> ![login](screenshots/login.png)
+> ![login](https://github.com/thebeeprogrammer/RetoTecnicoAndroid/blob/develop/login.png?raw=true)
 > ![movies](screenshots/movies.png)
->![movieDeatil](screenshots/movieDetail.png)
+> ![movieDeatil](screenshots/movieDetail.png)
 #Dependencies :elephant:
 >- Retrofit 2
 >- Glide
