@@ -11,7 +11,7 @@ class MovieDetailApi(private var theMovieDbService: TheMovieDbService) {
 
     suspend fun fetchMovies(movieId: Int): Flow<MovieDetailResponse> {
         return flow {
-            emit(theMovieDbService.fetchMovieDetail(337404))
+            emit(theMovieDbService.fetchMovieDetail(movieId))
         }.flowOn(Dispatchers.IO) as Flow<MovieDetailResponse>
     }
 }

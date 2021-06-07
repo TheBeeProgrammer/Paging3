@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/ivMovies"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/posterWidth"
+        android:layout_height="@dimen/posterHeight"
         android:adjustViewBounds="true"
         android:layout_gravity="center"
         android:scaleType="centerCrop" />

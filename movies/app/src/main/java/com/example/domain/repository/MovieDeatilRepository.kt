@@ -4,5 +4,5 @@ import com.example.data.network.api.MovieDetailApi
 import com.example.data.network.api.TheMovieDbService
 
 class MovieDeatilRepository(private val theMovieDbService: TheMovieDbService) {
-    suspend fun getMovie(movieId: Int) = MovieDetailApi(theMovieDbService).fetchMovies(837007)
+    suspend fun getMovie(movieId: Int) = MovieDetailApi(theMovieDbService).fetchMovies(movieId)
 }

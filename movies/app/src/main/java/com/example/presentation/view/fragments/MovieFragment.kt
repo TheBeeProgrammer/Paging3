@@ -1,5 +1,6 @@
 package com.example.presentation.view.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,11 +17,13 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
-class MovieFragment : Fragment() {
+class MovieFragment : Fragment(), MovieAdapter.CallBackAdapter {
 
     private var binding: FragmentMovieBinding? = null
     private lateinit var viewModel: MovieViewModel
     private val adapter = MovieAdapter()
+
+    private var callBack: CallBack? = null
 
     private var job: Job? = null
 
@@ -41,6 +44,16 @@ class MovieFragment : Fragment() {
         search()
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callBack = context as CallBack
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callBack = null
+    }
+
     private fun search() {
         // Make sure we cancel the previous job before creating a new one
         job?.cancel()
@@ -52,6 +65,7 @@ class MovieFragment : Fragment() {
     }
 
     private fun initAdapter() {
+        adapter.setView(this)
         binding?.rvMovies?.adapter = adapter
     }
 
@@ -62,5 +76,13 @@ class MovieFragment : Fragment() {
 
     companion object {
         fun newInstance() = MovieFragment()
+    }
+
+    interface CallBack {
+        fun navigateToMovieDetail(movieId: Int?)
+    }
+
+    override fun onMovieClicked(movieId: Int?) {
+        callBack?.navigateToMovieDetail(movieId)
     }
 }

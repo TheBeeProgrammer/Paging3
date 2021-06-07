@@ -11,13 +11,26 @@ import com.example.movies.R
 
 private const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 
-class MovieViewHolder(private val view: View): RecyclerView.ViewHolder(view){
+class MovieViewHolder(private val view: View) : RecyclerView.ViewHolder(view),
+    View.OnClickListener {
+
     private val poster: ImageView = view.findViewById(R.id.ivMovies)
     private var movie: MovieEntity? = null
+    private var callBackAdapter: MovieAdapter.CallBackAdapter? = null
+
+    init {
+        view.setOnClickListener{
+            callBackAdapter?.onMovieClicked(this.movie?.id)
+        }
+    }
+
+    fun setCallBack(callBackAdapter: MovieAdapter.CallBackAdapter?) {
+        this.callBackAdapter = callBackAdapter
+    }
+
     fun bind(movie: MovieEntity?) {
         if (movie == null) {
-            // TODO show empty data
-            //    name.text = movie?.title
+            // TODO: 6/6/2021 show empty image
         } else {
             showmovieData(movie)
         }
@@ -34,6 +47,10 @@ class MovieViewHolder(private val view: View): RecyclerView.ViewHolder(view){
                 .inflate(R.layout.movie_items, parent, false)
             return MovieViewHolder(view)
         }
+    }
+
+    override fun onClick(view: View?) {
+
     }
 
 }

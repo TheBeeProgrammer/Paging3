@@ -10,6 +10,6 @@ class MovieUseCase(
 
     fun getMovieList() = repository.getResult()
 
-    suspend fun getMovie(movieId: Int) = repositoryDetail.getMovie(837007)
+    suspend fun getMovie(movieId: Int) = repositoryDetail.getMovie(movieId)
 
 }

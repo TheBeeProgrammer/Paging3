@@ -9,7 +9,7 @@
         android:id="@+id/rvMovies"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:spanCount="4"
+        app:spanCount="3"
         app:layoutManager="GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
