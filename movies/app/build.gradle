@@ -60,6 +60,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit-mock:$retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
 
-    //glide
+    // glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    //test
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTest"
 }
