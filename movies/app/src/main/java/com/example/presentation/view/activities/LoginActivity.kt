@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.movies.R
 import com.example.movies.databinding.ActivityLoginBinding
 import com.example.presentation.viewmodel.LoginViewModel
 import java.time.Duration
@@ -29,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         viewmodel.eventIsSuccess.observe(this, { isSuccess ->
             if (isSuccess) navigateToMovieFragment() else Toast.makeText(
                 this,
-                "Empty Fields",
+                getString(R.string.login_error),
                 Toast.LENGTH_SHORT
             ).show()
         })
