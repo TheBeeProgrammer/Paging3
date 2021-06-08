@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.Injector
-import com.example.data.network.entities.moviedetail.MovieDetailResponse
+import com.example.data.entities.moviedetail.MovieDetailResponse
 import com.example.movies.databinding.FragmentMovieDeatilBinding
 import com.example.presentation.viewmodel.MovieViewModel
 import kotlinx.coroutines.Job
@@ -35,7 +35,7 @@ class MovieDeatilFragment : Fragment() {
         binding = FragmentMovieDeatilBinding.inflate(inflater, container, false)
         movieId = arguments?.getSerializable(ARG_MOVIE_ID) as Int
 
-        viewModel = ViewModelProvider(this, Injector.provideViewModelFactory())
+        viewModel = ViewModelProvider(this, Injector.provideViewModelFactory(requireContext()))
             .get(MovieViewModel::class.java)
 
         search()

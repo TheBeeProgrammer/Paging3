@@ -10,7 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.Injector
 import com.example.movies.databinding.FragmentMovieBinding
-import com.example.presentation.view.adapter.MovieAdapter
+import com.example.presentation.view.adapter.loader.MovieLoadStateAdapter
+import com.example.presentation.view.adapter.movie.MovieAdapter
 import com.example.presentation.viewmodel.MovieViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -33,7 +34,7 @@ class MovieFragment : Fragment(), MovieAdapter.CallBackAdapter {
     ): View? {
 
         binding = FragmentMovieBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this, Injector.provideViewModelFactory())
+        viewModel = ViewModelProvider(this, Injector.provideViewModelFactory(requireContext()))
             .get(MovieViewModel::class.java)
         return binding?.root
     }
@@ -66,7 +67,10 @@ class MovieFragment : Fragment(), MovieAdapter.CallBackAdapter {
 
     private fun initAdapter() {
         adapter.setView(this)
-        binding?.rvMovies?.adapter = adapter
+        binding?.rvMovies?.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = MovieLoadStateAdapter { adapter.retry() },
+            footer = MovieLoadStateAdapter { adapter.retry() }
+        )
     }
 
     override fun onDestroy() {

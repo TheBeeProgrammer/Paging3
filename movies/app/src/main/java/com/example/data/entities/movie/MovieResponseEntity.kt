@@ -1,9 +1,9 @@
-package com.example.data.network.entities.movie
+package com.example.data.entities.movie
 
 import com.google.gson.annotations.SerializedName
 
+
 data class MovieResponseEntity(
-    val dates: DatesEntity,
     val page: Int,
     @SerializedName("results")
     val movieList: List<MovieEntity>,

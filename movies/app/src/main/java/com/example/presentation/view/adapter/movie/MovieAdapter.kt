@@ -1,9 +1,9 @@
-package com.example.presentation.view.adapter
+package com.example.presentation.view.adapter.movie
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.example.data.network.entities.movie.MovieEntity
+import com.example.data.entities.movie.MovieEntity
 import com.example.presentation.view.fragments.MovieFragment
 
 class MovieAdapter : PagingDataAdapter<MovieEntity, MovieViewHolder>(Movie_COMPARATOR) {
@@ -20,9 +20,9 @@ class MovieAdapter : PagingDataAdapter<MovieEntity, MovieViewHolder>(Movie_COMPA
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.setCallBack(callBackAdapter)
-        val repoItem = getItem(position)
-        if (repoItem != null) {
-            holder.bind(repoItem)
+        val movieItem = getItem(position)
+        if (movieItem != null) {
+            holder.bind(movieItem)
         }
     }
 

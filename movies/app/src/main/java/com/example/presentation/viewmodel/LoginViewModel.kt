@@ -1,13 +1,14 @@
 package com.example.presentation.viewmodel
 
-import android.content.res.Resources
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.domain.model.Login
 import com.example.movies.R
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     private val loginModel = Login(R.string.username, R.string.password)
 
@@ -19,17 +20,20 @@ class LoginViewModel : ViewModel() {
         get() = _eventIsSuccess
 
     private fun isValidUserName(): Boolean {
-        if (userName.isBlank() && userName != Resources.getSystem()
-                .getString(loginModel.userName)
+        if (userName.isBlank() || userName != getApplication<Application>().resources.getString(
+                loginModel.userName
+            )
         ) {
+            _eventIsSuccess.value = false
             return false
         }
         return true
     }
 
     private fun isValidPassword(): Boolean {
-        if (password.isBlank() && password != Resources.getSystem()
-                .getString(loginModel.password)
+        if (password.isBlank() || password != getApplication<Application>().resources.getString(
+                loginModel.password
+            )
         ) {
             _eventIsSuccess.value = false
             return false
