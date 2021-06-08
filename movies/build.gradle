@@ -44,4 +44,6 @@ ext {
     retrofitVersion = '2.9.0'
     okhttpLoggingInterceptorVersion = '4.9.0'
     coroutines = '1.4.3'
+    junitVersion = '4.13.1'
+    coroutineTest = '1.5.0'
 }

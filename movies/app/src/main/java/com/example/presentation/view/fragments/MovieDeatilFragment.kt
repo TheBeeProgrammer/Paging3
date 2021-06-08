@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.Injector
 import com.example.data.entities.moviedetail.MovieDetailResponse
 import com.example.movies.databinding.FragmentMovieDeatilBinding
+import com.example.presentation.viewmodel.MovieDetailViewModel
 import com.example.presentation.viewmodel.MovieViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -22,7 +23,7 @@ private const val ARG_MOVIE_ID = "note_id"
 class MovieDeatilFragment : Fragment() {
 
     private var binding: FragmentMovieDeatilBinding? = null
-    private lateinit var viewModel: MovieViewModel
+    private lateinit var viewModel: MovieDetailViewModel
     private var movieId = 0
 
     private var job: Job? = null
@@ -36,7 +37,7 @@ class MovieDeatilFragment : Fragment() {
         movieId = arguments?.getSerializable(ARG_MOVIE_ID) as Int
 
         viewModel = ViewModelProvider(this, Injector.provideViewModelFactory(requireContext()))
-            .get(MovieViewModel::class.java)
+            .get(MovieDetailViewModel::class.java)
 
         search()
 
