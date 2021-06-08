@@ -6,6 +6,8 @@
 > ![login](https://i.postimg.cc/xC30k2BZ/login.png)
 > ![movies](https://i.postimg.cc/Vvsznh8k/moviedetail.png)
 > ![movieDeatil](https://i.postimg.cc/1XWsHKmc/movies.png)
+> [![no-network-conenction.png](https://i.postimg.cc/yxLGh297/no-network-conenction.png)](https://postimg.cc/64GztjYP)
+> [![no-network-connection-load.png](https://i.postimg.cc/431QhVpg/no-network-connection-load.png)](https://postimg.cc/yJkZMJfQ)
 # Dependencies :elephant:
 >- Retrofit 2
 >- Glide
