@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import com.example.Injector
+import com.example.movies.R
 import com.example.movies.databinding.FragmentMovieBinding
 import com.example.presentation.view.adapter.loader.MovieLoadStateAdapter
 import com.example.presentation.view.adapter.movie.MovieAdapter
@@ -34,6 +38,7 @@ class MovieFragment : Fragment(), MovieAdapter.CallBackAdapter {
     ): View? {
 
         binding = FragmentMovieBinding.inflate(inflater, container, false)
+        binding?.retryButton?.setOnClickListener { adapter.retry() }
         viewModel = ViewModelProvider(this, Injector.provideViewModelFactory(requireContext()))
             .get(MovieViewModel::class.java)
         return binding?.root
@@ -71,6 +76,41 @@ class MovieFragment : Fragment(), MovieAdapter.CallBackAdapter {
             header = MovieLoadStateAdapter { adapter.retry() },
             footer = MovieLoadStateAdapter { adapter.retry() }
         )
+        adapter.addLoadStateListener { loadState ->
+            // show empty list
+            val isListEmpty = loadState.refresh is LoadState.NotLoading && adapter.itemCount == 0
+            showEmptyList(isListEmpty)
+
+            // Only show the list if refresh succeeds.
+            binding?.rvMovies?.isVisible = loadState.mediator?.refresh is LoadState.NotLoading
+            // Show loading spinner during initial load or refresh.
+            binding?.progressBar?.isVisible = loadState.mediator?.refresh is LoadState.Loading
+            // Show the retry state if initial load or refresh fails.
+            binding?.retryButton?.isVisible = loadState.mediator?.refresh is LoadState.Error
+
+            // Toast on any error, regardless of whether it came from RemoteMediator or PagingSource
+            val errorState = loadState.source.append as? LoadState.Error
+                ?: loadState.source.prepend as? LoadState.Error
+                ?: loadState.append as? LoadState.Error
+                ?: loadState.prepend as? LoadState.Error
+            errorState?.let {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.api_load_error, it.error),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+
+    private fun showEmptyList(show: Boolean) {
+        if (show) {
+            binding?.emptyList?.visibility = View.VISIBLE
+            binding?.rvMovies?.visibility = View.GONE
+        } else {
+            binding?.emptyList?.visibility = View.GONE
+            binding?.rvMovies?.visibility = View.VISIBLE
+        }
     }
 
     override fun onDestroy() {

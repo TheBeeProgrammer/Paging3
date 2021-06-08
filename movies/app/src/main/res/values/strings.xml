@@ -7,4 +7,6 @@
     <string name="user_name">user name</string>
     <string name="password_hint">password</string>
     <string name="sign_in">Sign In</string>
+    <string name="no_results">no_results</string>
+    <string name="api_load_error">Error: %s </string>
 </resources>
