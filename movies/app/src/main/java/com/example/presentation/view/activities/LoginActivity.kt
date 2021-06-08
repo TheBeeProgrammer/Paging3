@@ -3,10 +3,8 @@ package com.example.presentation.view.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.movies.databinding.ActivityLoginBinding
-import com.example.presentation.view.fragments.MovieFragment
 import com.example.presentation.viewmodel.LoginViewModel
 
 
