@@ -1,6 +1,7 @@
-package com.example.data.network.entities.movie
+package com.example.data.entities.movie
 
 import com.google.gson.annotations.SerializedName
+
 
 data class MovieResponseEntity(
     val page: Int,

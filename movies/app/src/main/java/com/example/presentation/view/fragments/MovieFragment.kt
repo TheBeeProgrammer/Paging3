@@ -34,7 +34,7 @@ class MovieFragment : Fragment(), MovieAdapter.CallBackAdapter {
     ): View? {
 
         binding = FragmentMovieBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this, Injector.provideViewModelFactory())
+        viewModel = ViewModelProvider(this, Injector.provideViewModelFactory(requireContext()))
             .get(MovieViewModel::class.java)
         return binding?.root
     }
