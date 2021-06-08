@@ -2,10 +2,12 @@ package com.example.presentation.view.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.movies.databinding.ActivityLoginBinding
 import com.example.presentation.viewmodel.LoginViewModel
+import java.time.Duration
 
 
 class LoginActivity : AppCompatActivity() {
@@ -25,7 +27,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         viewmodel.eventIsSuccess.observe(this, { isSuccess ->
-            if (isSuccess) navigateToMovieFragment()
+            if (isSuccess) navigateToMovieFragment() else Toast.makeText(
+                this,
+                "Empty Fields",
+                Toast.LENGTH_SHORT
+            ).show()
         })
     }
 

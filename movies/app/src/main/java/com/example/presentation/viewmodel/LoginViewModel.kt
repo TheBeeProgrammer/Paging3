@@ -24,6 +24,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 loginModel.userName
             )
         ) {
+            _eventIsSuccess.value = false
             return false
         }
         return true
@@ -34,6 +35,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 loginModel.password
             )
         ) {
+            _eventIsSuccess.value = false
             return false
         }
         return true
