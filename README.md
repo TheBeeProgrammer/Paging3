@@ -13,6 +13,8 @@
 >- Glide
 >- Coroutines
 >- Paging 3
+>- Room
+>- CoroutinesTest
 # References :books:
 >- https://developer.android.com/codelabs/android-paging#0
 >- https://developer.android.com/kotlin/flow?hl=es-419
